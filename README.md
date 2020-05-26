@@ -252,11 +252,39 @@ const useFetch = (url, dependencies = [], formatResponse = () => {}) => {
 };
 ```
 
+<<<<<<< HEAD
 ## Dispensing Asynchronous Actions
+=======
+## Despensing Asynchronous Actions
+>>>>>>> asynchronous-actions
 
 **Important**: We're going to check out the `asynchronous-actions` branch.
 
 How could we right a simple thunk reducer?
+<<<<<<< HEAD
+=======
+
+```js
+const useThunkReducer = (reducer, initialState) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const enhancedDispatch = action => {
+    if (typeof action === 'function') {
+      console.log('It is a thunk');
+      action(dispatch);
+    } else {
+      dispatch(action);
+    }
+  };
+
+  return [state, enhancedDispatch];
+};
+```
+
+Now, we just use that reducer instead.
+
+---
+>>>>>>> asynchronous-actions
 
 ```js
 const useThunkReducer = (reducer, initialState) => {
